@@ -30,8 +30,8 @@
 
     <ImageView
         android:id="@+id/iV_snake"
-        android:layout_width="360dp"
-        android:layout_height="360dp"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
         android:layout_margin="10dp"
         android:alpha="0.4"
         android:contentDescription="@string/img_snake"

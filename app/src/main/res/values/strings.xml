@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">SBook</string>
+    <string name="app_name">SnakeBook</string>
+    <string name="app_settings">Settings</string>
+    <string name="app_add">Add Note</string>
+    <string name="img_snake">Snake</string>
+    <string name="type_something">Нашипите здесь что-нибудь</string>
 </resources>

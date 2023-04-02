@@ -2,17 +2,68 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/MainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_image"
     tools:context=".MainActivity">
 
+    <ImageButton
+        android:id="@+id/iB_settings"
+        style="@style/snake_round_button"
+        android:contentDescription="@string/app_settings"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_settings_24"
+        tools:ignore="MissingConstraints"
+        android:onClick="settings"/>
+
+    <ImageButton
+        android:id="@+id/iB_add_note"
+        style="@style/snake_round_button"
+        android:contentDescription="@string/app_add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_add_24"
+        tools:ignore="MissingConstraints"
+        android:onClick="addClick"/>
+
+    <ImageView
+        android:id="@+id/iV_snake"
+        android:layout_width="360dp"
+        android:layout_height="360dp"
+        android:layout_margin="10dp"
+        android:alpha="0.4"
+        android:contentDescription="@string/img_snake"
+        app:layout_constraintBottom_toTopOf="@+id/tV_appName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.458"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iB_settings"
+        app:srcCompat="@drawable/snake"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/mainScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="60dp">
+
+    </androidx.core.widget.NestedScrollView>
+
     <TextView
+        android:id="@+id/tV_appName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_margin="10dp"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:ignore="MissingConstraints"
+        android:onClick="intro"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

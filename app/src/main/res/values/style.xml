@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="snake_round_button">
+        <item name="android:background">@drawable/rectangle_1</item>
+        <item name="android:onClick">buttonClick</item>
+        <item name="android:layout_width">64dp</item>
+        <item name="android:layout_height">64dp</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:layout_margin">10dp</item>
+    </style>
+    <style name="snake_square_button" parent="snake_round_button">
+        <item name="android:layout_margin">20dp</item>
+        <item name="android:background">@drawable/rectangle_2</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">80dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/black</item>
+
+    </style>
+</resources>

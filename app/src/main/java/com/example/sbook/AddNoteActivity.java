@@ -23,6 +23,18 @@ public class AddNoteActivity extends AppCompatActivity {
             etText.setText(text);
         }
     }
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("id", id);
+        outState.putString("txt",text);
+    }
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        id = savedInstanceState.getInt("id");
+        text = savedInstanceState.getString("txt");
+    }
     public void accept (View ImageButton) {
         text = etText.getText().toString();
         if (text.length() > 0 && id > -1) {

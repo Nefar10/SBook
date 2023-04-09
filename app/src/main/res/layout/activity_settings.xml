@@ -4,6 +4,141 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_settings"
     tools:context=".SettingsActivity">
+
+    <ImageButton
+        android:id="@+id/iB_cancel"
+        style="@style/snake_round_button"
+        android:contentDescription="@string/app_settings"
+        app:layout_constraintEnd_toStartOf="@+id/iB_ok"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_arrow_circle_left_24"
+        tools:ignore="MissingConstraints"
+        android:onClick="cancel"/>
+
+    <ImageButton
+        android:id="@+id/iB_ok"
+        style="@style/snake_round_button"
+        android:contentDescription="@string/app_add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_check_circle_24"
+        tools:ignore="MissingConstraints"
+        android:onClick="accept"/>
+
+    <TextView
+        android:id="@+id/tV_appName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/iV_snake"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:layout_margin="10dp"
+        android:alpha="0.4"
+        android:contentDescription="@string/img_snake"
+        app:layout_constraintBottom_toTopOf="@+id/tV_appName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.458"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/snake"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/sw_big_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:checked="false"
+        android:minHeight="48dp"
+        android:text="Я очковая змея"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/iB_cancel"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="80dp"/>
+
+    <TextView
+        android:id="@+id/tV_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Цвет блока"
+        android:gravity="center_vertical"
+        android:minHeight="48dp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sw_big_text" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center_vertical"
+        android:minHeight="48dp"
+        android:text="Прозрачность"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tV_color"
+        tools:ignore="MissingConstraints" />
+
+    <SeekBar
+        android:id="@+id/sb_opacity"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tV_color"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tV_note"
+        style="@style/snake_square_button"
+        android:layout_margin="20dp"
+        android:text="Образец"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <CheckBox
+        android:id="@+id/cb_hints"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:checked="true"
+        android:minHeight="48dp"
+        android:text="Показывать подсказки"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/tV_note"
+        tools:layout_editor_absoluteX="10dp" />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/sw_color"
+        android:layout_width="200dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sw_big_text"
+        tools:ignore="MissingConstraints,TextSizeCheck" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -114,13 +114,6 @@ public class SettingsActivity extends AppCompatActivity {
                 }
                 @Override
                 public void onStopTrackingTouch(SeekBar seekBar) {
-                    if (set_hints) {
-                        Toast toast = Toast.makeText(getApplicationContext(), "Ок!", Toast.LENGTH_SHORT);
-                        toast.setGravity(Gravity.CENTER, 0, 0);
-                        TextView v = (TextView) toast.getView().findViewById(android.R.id.message);                 //формируем и выводим мотивирующий тост
-                        if (v != null) v.setGravity(Gravity.CENTER);
-                        toast.show();
-                    }
                 }
 
             });
@@ -136,7 +129,7 @@ public class SettingsActivity extends AppCompatActivity {
     }
     public void changeBoxColor () {
         Drawable drawable = ContextCompat.getDrawable(getApplicationContext(), R.drawable.rectangle_2);
-        ColorFilter colorFilter = new PorterDuffColorFilter(0x1000000 * (set_opacity + 100)  + set_color, PorterDuff.Mode.SRC_IN);
+        ColorFilter colorFilter = new PorterDuffColorFilter(0x1000000 * (set_opacity + 150)  + set_color, PorterDuff.Mode.SRC_IN);
         drawable.setColorFilter(colorFilter);
         tVNotes.setBackground(drawable);
     }

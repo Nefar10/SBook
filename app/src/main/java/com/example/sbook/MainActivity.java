@@ -64,13 +64,13 @@ public class MainActivity extends AppCompatActivity {
         noteView.setLayoutParams(params);                                                           //применяем отступы
         noteView.setId(id);                                                                         //устанавливаем id
         noteView.setText(myNotes.get(id - 1));                                                      //добавляем в блок текст заметки
-        if (set_big_text) {noteView.setTextSize(20);}
-        else {noteView.setTextSize(20);}                                                                   //устанавалием размер шрифта
+        if (set_big_text) {noteView.setTextSize(30);}
+        else {noteView.setTextSize(20);}                                                            //устанавалием размер шрифта
         noteView.setMinHeight(140);                                                                 //устанавалием минимальную высоту блока
         noteView.setMaxHeight(300);                                                                 //устанавливаемм максимальную высоту блока
         noteView.setTextColor(0xFF000000);                                                          //устанаваливаем цвет текста заметки
         noteView.setGravity(Gravity.CENTER_VERTICAL);                                               //выравниваем текст заметки по центру вертикально
-        //noteView.setBackgroundResource(R.drawable.rectangle_2);                                     //придаем блоку форму
+        //noteView.setBackgroundResource(R.drawable.rectangle_2);                                   //придаем блоку форму
         Drawable drawable = ContextCompat.getDrawable(getApplicationContext(), R.drawable.rectangle_2);
         ColorFilter colorFilter = new PorterDuffColorFilter(0x1000000 * (set_opacity + 100)  + set_color, PorterDuff.Mode.SRC_IN);
         drawable.setColorFilter(colorFilter);
@@ -78,11 +78,13 @@ public class MainActivity extends AppCompatActivity {
         noteView.setOnClickListener(new View.OnClickListener() {                                    //добавляем обработчик нажатия
             @Override
             public void onClick(View view) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Ну давай!\nНашипи ещё что-нибудь!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                TextView v = (TextView) toast.getView().findViewById(android.R.id.message);         //формируем и выводим мотивирующий тост
-                if( v != null) v.setGravity(Gravity.CENTER);
-                toast.show();
+                if (set_hints) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Ну давай!\nНашипи ещё что-нибудь!", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    TextView v = (TextView) toast.getView().findViewById(android.R.id.message);         //формируем и выводим мотивирующий тост
+                    if (v != null) v.setGravity(Gravity.CENTER);
+                    toast.show();
+                }
                 Intent add_note = new Intent(MainActivity.this, AddNoteActivity.class);//создаем форму для редактирования заметки
                 add_note.putExtra("id", noteView.getId());                                    //отправляем в форму id заметки
                 add_note.putExtra("txt", noteView.getText());                                 //отправляем в форму текст заметки
@@ -104,11 +106,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void addClick (View ImageButton) {
-        Toast toast = Toast.makeText(getApplicationContext(), "Ну давай!\nНашипи ещё что-нибудь!", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.CENTER, 0, 0);
-        TextView v = (TextView) toast.getView().findViewById(android.R.id.message);                 //формируем и выводим мотивирующий тост
-        if( v != null) v.setGravity(Gravity.CENTER);
-        toast.show();
+        if (set_hints) {
+            Toast toast = Toast.makeText(getApplicationContext(), "Ну давай!\nНашипи ещё что-нибудь!", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            TextView v = (TextView) toast.getView().findViewById(android.R.id.message);                 //формируем и выводим мотивирующий тост
+            if (v != null) v.setGravity(Gravity.CENTER);
+            toast.show();
+        }
         Intent add_note = new Intent(this,  AddNoteActivity.class);                    //создаем форму для редактирования заметки
         add_note.putExtra("id", myNotes.size()+1);                                      //отправляем в форму id заметки
         add_note.putExtra("txt", "");                                                   //отправляем в форму текст заметки
@@ -145,23 +149,23 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         if (requestCode == 2) {
-
             set_big_text = note.getBooleanExtra("set_big_text", false);
             set_hints = note.getBooleanExtra("set_hints",true);
             set_color = note.getIntExtra("set_color",0xE6E100);
             set_opacity = note.getIntExtra("set_opacity",50);
-            Log.d("info", "bigtext: "+String.valueOf(set_big_text));
-            Log.d("info", "hints: "+String.valueOf(set_hints));
+            recreate();
             return;
         }
     }
     public void intro (View ImageButton) {
-        Toast toast = Toast.makeText(getApplicationContext(), "Привет!\nЯ шшшмея Барбара." +
-                "\nМогу запомнить бешшшеное количество заметок!\nПроверишшшь?", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.CENTER, 0, 0);
-        TextView v = (TextView) toast.getView().findViewById(android.R.id.message);
-        if( v != null) v.setGravity(Gravity.CENTER);
-        toast.show();
+        if (set_hints) {
+            Toast toast = Toast.makeText(getApplicationContext(), "Привет!\nЯ шшшмея Барбара." +
+                    "\nМогу запомнить бешшшеное количество заметок!\nПроверишшшь?", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            TextView v = (TextView) toast.getView().findViewById(android.R.id.message);
+            if (v != null) v.setGravity(Gravity.CENTER);
+            toast.show();
+        }
     }
 
     public void settings (View Imagebutton) {

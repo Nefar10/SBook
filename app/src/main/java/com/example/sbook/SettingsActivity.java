@@ -12,6 +12,7 @@ import android.graphics.ColorFilter;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -62,8 +63,6 @@ public class SettingsActivity extends AppCompatActivity {
                         if (set_hints) {
                             Toast toast = Toast.makeText(getApplicationContext(), "Сочувствую\nЯ тоже плохо вижу!", Toast.LENGTH_SHORT);
                             toast.setGravity(Gravity.CENTER, 0, 0);
-                            TextView v = (TextView) toast.getView().findViewById(android.R.id.message);                 //формируем и выводим мотивирующий тост
-                            if (v != null) v.setGravity(Gravity.CENTER);
                             toast.show();
                         }
                     } else {
@@ -72,8 +71,6 @@ public class SettingsActivity extends AppCompatActivity {
                         if (set_hints) {
                             Toast toast = Toast.makeText(getApplicationContext(), "Очень рада\nза твоё зрение!", Toast.LENGTH_SHORT);
                             toast.setGravity(Gravity.CENTER, 0, 0);
-                            TextView v = (TextView) toast.getView().findViewById(android.R.id.message);                 //формируем и выводим мотивирующий тост
-                            if (v != null) v.setGravity(Gravity.CENTER);
                             toast.show();
                         }
                     }
@@ -87,15 +84,11 @@ public class SettingsActivity extends AppCompatActivity {
                         set_hints = true;
                         Toast toast = Toast.makeText(getApplicationContext(), "Люблю подсказывать!", Toast.LENGTH_SHORT);
                         toast.setGravity(Gravity.CENTER, 0, 0);
-                        TextView v = (TextView) toast.getView().findViewById(android.R.id.message);                 //формируем и выводим мотивирующий тост
-                        if( v != null) v.setGravity(Gravity.CENTER);
                         toast.show();
                     } else {
                         set_hints = false;
                         Toast toast = Toast.makeText(getApplicationContext(), "Хозяин - барин!", Toast.LENGTH_SHORT);
                         toast.setGravity(Gravity.CENTER, 0, 0);
-                        TextView v = (TextView) toast.getView().findViewById(android.R.id.message);                 //формируем и выводим мотивирующий тост
-                        if( v != null) v.setGravity(Gravity.CENTER);
                         toast.show();
                     }
                 }
@@ -162,5 +155,10 @@ public class SettingsActivity extends AppCompatActivity {
         Intent sett = new Intent();
         setResult(RESULT_OK,sett);
         finish();
+    }
+    public void demo(View textView) {
+        Uri uri = Uri.parse("https://youtu.be/pmi3ZGY4BOM");
+        Intent demo_site = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(demo_site);
     }
 }

@@ -81,8 +81,6 @@ public class MainActivity extends AppCompatActivity {
                 if (set_hints) {
                     Toast toast = Toast.makeText(getApplicationContext(), "Ну давай!\nНашипи ещё что-нибудь!", Toast.LENGTH_SHORT);
                     toast.setGravity(Gravity.CENTER, 0, 0);
-                    TextView v = (TextView) toast.getView().findViewById(android.R.id.message);         //формируем и выводим мотивирующий тост
-                    if (v != null) v.setGravity(Gravity.CENTER);
                     toast.show();
                 }
                 Intent add_note = new Intent(MainActivity.this, AddNoteActivity.class);//создаем форму для редактирования заметки
@@ -109,8 +107,6 @@ public class MainActivity extends AppCompatActivity {
         if (set_hints) {
             Toast toast = Toast.makeText(getApplicationContext(), "Ну давай!\nНашипи ещё что-нибудь!", Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 0);
-            TextView v = (TextView) toast.getView().findViewById(android.R.id.message);                 //формируем и выводим мотивирующий тост
-            if (v != null) v.setGravity(Gravity.CENTER);
             toast.show();
         }
         Intent add_note = new Intent(this,  AddNoteActivity.class);                    //создаем форму для редактирования заметки
@@ -162,8 +158,6 @@ public class MainActivity extends AppCompatActivity {
             Toast toast = Toast.makeText(getApplicationContext(), "Привет!\nЯ шшшмея Барбара." +
                     "\nМогу запомнить бешшшеное количество заметок!\nПроверишшшь?", Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 0);
-            TextView v = (TextView) toast.getView().findViewById(android.R.id.message);
-            if (v != null) v.setGravity(Gravity.CENTER);
             toast.show();
         }
     }
